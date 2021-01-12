@@ -1,0 +1,67 @@
+:root {
+    --linear-backgroud-color: linear-gradient(90deg, rgba(108,99,255,1) 0%, rgba(0,142,191,0.9303922252494747) 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+
+    font-family: 'Poppins', sans-serif;
+    background: rgb(108,99,255);
+    background: var(--linear-backgroud-color)
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+/* Config para menu de botões gerais da aplicação */
+.menu-configuration-container {
+    background-color: #252629;
+    display: flex;
+    width: 100%;
+    height: 25px;
+    
+    -webkit-app-region: drag;
+}
+
+.menu-configuration-container span {
+    width: 15px;
+    height: 15px;
+    margin: auto 6px;
+    border-radius: 10px;
+}
+
+.menu-configuration-container span:nth-child(1) {
+    margin-left: auto;
+    cursor: pointer;
+    background-color: #FFDF6C;
+
+    -webkit-app-region: no-drag;
+}
+
+.menu-configuration-container span:nth-child(2) {
+    background-color: #DE354C;
+    cursor: pointer;
+
+    -webkit-app-region: no-drag;
+}
+
+/* Configurações do icone do Raccoon */
+.raccon-icon {
+    width: 100%;
+    display: flex;
+}
+
+.raccon-icon img{
+    width: 90px;
+    height: 80px;
+
+    margin: 25px auto 0 10px;
+}
