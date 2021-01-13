@@ -29,18 +29,16 @@
 }
 
 .container-options {
-    transition: .5s;
-
     width: 280px;
     padding: 0 0 0 0;
     border-radius: 10px;
     margin-top: 15px;
     
-    display: flex;
+    display: none;
     position: absolute;
     flex-direction: column;
     background-color: #F3F3F3;
-    opacity: 0;
+    z-index: 2;
 }
 
 .option {
@@ -58,4 +56,40 @@
 
 .option:hover {
     background-color: #4444ddbb;
+}
+
+/* Container com os Generos */
+
+.container-genero {
+    width: 270px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    min-height: 58px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 10px;
+    background-color: #F3F3F3;
+    z-index: 1;
+}
+
+.genero {
+    margin: 10px;
+    padding: 5px 15px;
+    
+    display: flex;
+    align-items: center;
+
+    border-radius: 5px;
+    filter: drop-shadow(5px 5px 4px #4444dd);
+    background-color: #4444ddbb;
+}
+
+.genero img {
+    widows: 10px;
+    height: 10px;
+    margin-left: auto;
+    
+    cursor: pointer;
 }

@@ -17,6 +17,10 @@ app.on('ready', () => {
         minimizable: true
     });
 
+    mainWindow.on('close', () => {
+        app.quit();    
+    });
+
     mainWindow.loadFile(path.join(__dirname, 'src', 'index', 'index.html'));
 
     ipcMain.on('close-main-window', (event, args) => {
@@ -43,6 +47,8 @@ app.on('ready', () => {
         cadWindow.on('close', () => {
             mainWindow.webContents.send('cad-window-close');
         });
+
+        // cadWindow.openDevTools();
     });
 
     ipcMain.on('close-cad-window', (event, args) => {

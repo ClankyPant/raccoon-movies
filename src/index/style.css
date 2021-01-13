@@ -8,7 +8,6 @@
     height: 500px;
     margin: 25px 0;
     
-    display: flex;
     border-radius: 10px;
     -moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
     -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
@@ -16,34 +15,6 @@
     background-color: #6C63FF;
 }
 
-.container-btn {
-    width: 25vw;
-    max-width: 250px;
-    margin: auto auto 20px auto;
-    
-    display: flex;
-    border-radius: 30px;
-
-    background-color: #F3F3F3;
-
-    cursor: pointer;
-    font-weight: bold;
-    user-select: none;
-    
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-}
-
-.container-btn:active {
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
-}
-
-.btn-cadastrar-novo {
-    margin: auto;
-}
-
-.readOnly {
-    display: none;
-}
+/* #btn-novo {
+    margin-top: auto;
+} */

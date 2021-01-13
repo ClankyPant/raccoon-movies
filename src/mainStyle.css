@@ -82,3 +82,30 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #F3F3F3;
 }
+
+/* Botões */
+.container-btn {
+    text-align: center;
+    
+    padding: 5px 15px;
+    border-radius: 5px;
+
+    background-color: #F3F3F3;
+    filter: drop-shadow(5px 5px 4px #4444dd);
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+.container-btn:active {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+
+.readOnly {
+    display: none;
+}

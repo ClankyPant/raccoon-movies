@@ -1,6 +1,17 @@
 const { ipcRenderer } = require('electron');
 const _ = require('underscore');
 
+let generosArray = [];
+let divGeneros = [];
+let spanGeneros = [];
+let imgGeneros = [];
+
+let options = _.toArray(document.getElementsByClassName('option'));
+
+let spanGenero = document.querySelector('.drop-box');
+let body = document.body;
+
+
 // Enviando Mensagem para Main Process
 const btnExit = document.querySelector('.btn-exit')
 btnExit.addEventListener('click', () => {
@@ -13,31 +24,45 @@ btnMini.addEventListener('click', () => {
 });
 
 // Realizando Event Listener para Drop Box
-let spanGenero = document.querySelector('.drop-box');
-let body = document.body;
-
 spanGenero.addEventListener('click', () => {
     let dropDown = document.querySelector('.container-options');
-    if (dropDown.style.opacity === "0" || dropDown.style.opacity === "") {
-        dropDown.style.opacity = "1"
+    if (dropDown.style.display === "none" || dropDown.style.display === "") {
+        dropDown.style.display = "flex"
     } else {
-        dropDown.style.opacity = "0"
+        dropDown.style.display = "none"
     }
 });
 
-let options = _.toArray(document.getElementsByClassName('option'));
-
 options.forEach(element => {
     element.addEventListener('click', (e) => {
-        
+        let index = e.target.id;
+        let containerGenero = document.querySelector('.container-genero');
+
+        if (!generosArray.includes(e.target.innerHTML)) {
+            divGeneros[index] = document.createElement('div');
+            divGeneros[index].setAttribute('class', 'genero');
+            containerGenero.appendChild(divGeneros[index]);
+
+            spanGeneros[index] = document.createElement('span');
+            spanGeneros[index].innerHTML = e.target.innerHTML;
+            divGeneros[index].appendChild(spanGeneros[index])
+
+            imgGeneros[index] = document.createElement('img');
+            imgGeneros[index].setAttribute('src', '../img/remove-img.svg');
+            imgGeneros[index].addEventListener('click', () => {
+                divGeneros[index].remove();
+                generosArray.splice(generosArray.indexOf(e.target.innerHTML), 1);
+            });
+            divGeneros[index].appendChild(imgGeneros[index]);
+            generosArray.push(e.target.innerHTML);
+        }
     });
 });
 
 // Configuração para fechar drop down caso seja clicado fora dele.
 body.addEventListener('click', (e) => {
-    console.log(spanGenero);
-    console.log(e.target);
     if (!spanGenero.contains(e.target)) {
-        document.querySelector('.container-options').style.opacity = "0";
+        document.querySelector('.container-options').style.display = "none"
     }
 });
+
