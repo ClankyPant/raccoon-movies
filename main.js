@@ -29,8 +29,8 @@ app.on('ready', () => {
 
     ipcMain.on('open-cad-window', (event, args) => {
         cadWindow = new BrowserWindow({
-            width: 550,
-            height: 400,
+            width: 650,
+            height: 750,
             webPreferences: {
                 nodeIntegration: true
             },

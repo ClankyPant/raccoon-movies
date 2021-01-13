@@ -1,26 +1,10 @@
-/* Search Bar configução */
-.search-container {
-    width: 350px;
-    height: 40px;
-    padding-left: 25px;
-
-    outline: none;
-
-    border-radius: 30px;
-    border-width: 0;
-    
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    background-color: #F3F3F3;
-}
-
 .search-container::placeholder {
     color: rgba(0, 0, 0, 0.2);
 }
 
 /* Container onde fica a listagem de filmes */
 .container-list-movies {
-    width: 70vw;
+    width: 85vw;
     height: 500px;
     margin: 25px 0;
     
@@ -58,4 +42,8 @@
 
 .btn-cadastrar-novo {
     margin: auto;
+}
+
+.readOnly {
+    display: none;
 }

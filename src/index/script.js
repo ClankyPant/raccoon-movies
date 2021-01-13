@@ -6,7 +6,6 @@ btnExit.addEventListener('click', () => {
     ipcRenderer.send('close-main-window');
 });
 
-// Enviando Mensagem para Main Process
 const btnMini = document.querySelector('.btn-minimizate');
 btnMini.addEventListener('click', () => {
     ipcRenderer.send('minimizate-main-window');
