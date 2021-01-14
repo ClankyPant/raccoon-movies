@@ -1,5 +1,7 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
+const _ = require('underscore');
+const sqlite3 = require('sqlite3').verbose();
 
 let mainWindow;
 let cadWindow;
@@ -58,4 +60,36 @@ app.on('ready', () => {
     ipcMain.on('minimizate-cad-window', (event, args) => {
         cadWindow.minimize();
     });
+
+    ipcMain.on('send-messenge', (event, args) => {
+        dialog.showMessageBox(cadWindow, {
+            type: args[0],
+            title: args[1],
+            message: args[2]
+        })
+    });
+
+    ipcMain.on('cad-filme-novo', (event, args) => {
+        let db = new sqlite3.Database(path.join(__dirname, 'src', 'database', 'db.db'));
+
+        db.serialize(() => {
+            db.run(` CREATE TABLE IF NOT EXISTS filmes (
+                nome_filme VARCHAR(100) NOT NULL,
+                generos VARCHAR(100)
+            ); `);
+            
+            let generosToArray = _.toArray(args[1]).join(', ');
+            
+            db.run(' INSERT INTO filmes (nome_filme, generos) VALUES (?, ?); ', [args[0], generosToArray], (error) => {
+
+                if (error) {
+                    console.log(error.message);
+                }
+            });
+
+            db.close();
+        });
+
+        cadWindow.close();
+    })
 });

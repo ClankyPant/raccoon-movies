@@ -13,6 +13,7 @@
     "electron": "11.1.1"
   },
   "dependencies": {
+    "sqlite3": "^5.0.1",
     "underscore": "^1.12.0"
   }
 }

@@ -11,6 +11,7 @@ let options = _.toArray(document.getElementsByClassName('option'));
 let spanGenero = document.querySelector('.drop-box');
 let body = document.body;
 
+let btnCadastrar = document.querySelector('.container-btn');
 
 // Enviando Mensagem para Main Process
 const btnExit = document.querySelector('.btn-exit')
@@ -66,3 +67,18 @@ body.addEventListener('click', (e) => {
     }
 });
 
+btnCadastrar.addEventListener('click', (e) => {
+    let nomeFilme = document.querySelector('.input-text');
+    
+    if (nomeFilme.value.length === 0) {
+        ipcRenderer.send('send-messenge', ['warning', 'Aviso!', 'Preencha o nome do filme!']);
+        return
+    }
+
+    if (_.isEmpty(generosArray)) {
+        ipcRenderer.send('send-messenge', ['warning', 'Aviso!', 'Escolha ao menos um gênero!']);
+        return
+    }
+
+    ipcRenderer.send('cad-filme-novo', [nomeFilme.value, generosArray]);
+});

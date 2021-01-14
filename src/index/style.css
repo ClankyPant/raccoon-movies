@@ -8,6 +8,8 @@
     height: 500px;
     margin: 25px 0;
     
+    overflow: scroll;
+
     border-radius: 10px;
     -moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
     -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
@@ -15,6 +17,10 @@
     background-color: #6C63FF;
 }
 
-/* #btn-novo {
-    margin-top: auto;
-} */
+.filme {
+    margin: 10px 10px;
+    padding: 2px;
+
+    display: flex;
+    align-content: space-between;
+}
